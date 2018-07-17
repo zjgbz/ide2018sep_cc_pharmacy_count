@@ -39,4 +39,7 @@ sorted_drug_cost = [drug_cost[i] for i in top_cost_list_index]
 with open(output_filename, 'w') as f:
 	f.write("{0:s},{1:s},{2:s}\n".format("drug_name","num_prescriber","total_cost"))
 	for i in range(drug_num):
-		f.write("{0:s},{1:d},{2:.2f}\n".format(sorted_drug_list[i],sorted_drug_custmer_num[i],sorted_drug_cost[i]))
+		if (sorted_drug_cost[i]).is_integer():
+			f.write("{0:s},{1:d},{2:.0f}\n".format(sorted_drug_list[i],sorted_drug_custmer_num[i],sorted_drug_cost[i]))
+		else:
+			f.write("{0:s},{1:d},{2:.2f}\n".format(sorted_drug_list[i],sorted_drug_custmer_num[i],sorted_drug_cost[i]))
